@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_reg_buyer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.verbosetech.quickdeal.RegBuyerActivity">
+
+
+    <TextView
+        android:text="REGISTER AS BUYER"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:id="@+id/textView2"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:textColor="#000"/>
+    <View
+        android:layout_width="130dp"
+        android:layout_height="3dp"
+        android:layout_below="@+id/textView2"
+        android:background="#ffc2"
+        android:layout_marginTop="8dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/bview"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bview"
+        android:layout_marginTop="25dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:id="@+id/llreg">
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:drawableLeft="@drawable/ic_person_black_18dp"
+            android:drawablePadding="15dp"
+            android:hint="Full Name"
+            android:textColorHint="#b4b5b6"
+            android:background="#f7f8f9"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:inputType="text"
+
+            />
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:drawableLeft="@drawable/ic_email_black_18dp"
+            android:drawablePadding="15dp"
+            android:hint="Email Address"
+            android:textColorHint="#b4b5b6"
+            android:background="#f7f8f9"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:inputType="textEmailAddress"
+            />
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:drawableLeft="@drawable/ic_lock_black_18dp"
+            android:drawablePadding="15dp"
+            android:hint="Create Password"
+            android:textColorHint="#b4b5b6"
+            android:background="#f7f8f9"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:inputType="textPassword"
+
+            />
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:drawableLeft="@drawable/ic_lock_black_18dp"
+            android:drawablePadding="15dp"
+            android:hint="Confirm Password"
+            android:textColorHint="#b4b5b6"
+            android:background="#f7f8f9"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:inputType="textPassword"
+
+            />
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:drawableLeft="@drawable/ic_location_on_black_18dp"
+            android:drawablePadding="15dp"
+            android:hint="Your Location"
+            android:textColorHint="#b4b5b6"
+            android:background="#f7f8f9"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:inputType="text"
+
+            />
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:drawableLeft="@drawable/ic_call_black_18dp"
+            android:drawablePadding="15dp"
+            android:hint="Phone Number"
+            android:textColorHint="#b4b5b6"
+            android:background="#f7f8f9"
+            android:padding="10dp"
+            android:textSize="15dp"
+            android:inputType="number"
+
+            />
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llreg"
+        android:text="You will recieve OTP code on this number."
+        android:textSize="10dp"
+        android:id="@+id/textView3"
+        android:layout_alignRight="@+id/llreg"
+        android:layout_alignEnd="@+id/llreg" />
+
+    <Button
+        android:text="Register Now"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="16dp"
+        android:id="@+id/button2"
+        android:onClick="regnow"
+        android:background="@drawable/buttonround"
+        android:layout_alignLeft="@+id/llreg"
+        android:layout_alignStart="@+id/llreg"
+        android:layout_alignRight="@+id/textView3"
+        android:layout_alignEnd="@+id/textView3" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="30dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Already have an account?"
+            android:textColor="#000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Sign in now"
+            android:onClick="signinnow"
+            android:textColor="#0d47a1"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+</RelativeLayout>

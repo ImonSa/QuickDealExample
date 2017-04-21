@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_otp_verification"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.verbosetech.quickdeal.OtpVerificationActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Sit back and relax while"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:id="@+id/tv1"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:text="we verify your mobile number"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:id="@+id/tv2"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/llotp"
+        android:layout_below="@+id/tv2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:weightSum="1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv3"
+            android:text="9033356708"
+            android:textSize="17dp"
+            android:layout_marginTop="10dp"
+            android:drawablePadding="10dp"
+            android:drawableLeft="@drawable/ic_call_black_18dp"
+            />
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llotp"
+        android:id="@+id/tv4"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="30dp"
+        android:text="Enter OTP Code"
+        android:textSize="25dp"
+        android:textColor="#3f51b5"/>
+
+    <Button
+        android:text="Confirm"
+        android:textColor="#ffff"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/confirm"
+        android:layout_below="@+id/otp"
+        android:background="@drawable/buttonround"
+        android:layout_centerHorizontal="true"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/confirm"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="30dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Didn't recieve the OTP?"
+            android:textColor="#000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Resend now"
+            android:onClick="resendnow"
+            android:textColor="#0d47a1"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:textSize="25dp"
+        android:id="@+id/otp"
+        android:maxLength="6"
+        android:cursorVisible="true"
+        android:gravity="center"
+        android:layout_below="@+id/tv4"
+        android:layout_alignRight="@+id/tv4"
+        android:layout_alignEnd="@+id/tv4"
+        android:layout_alignLeft="@+id/tv4"
+        android:layout_alignStart="@+id/tv4" />
+</RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "376168246948",
+    "firebase_url": "https://quickdeal-fdba8.firebaseio.com",
+    "project_id": "quickdeal-fdba8",
+    "storage_bucket": "quickdeal-fdba8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:376168246948:android:58d044895e86a28d",
+        "android_client_info": {
+          "package_name": "com.verbosetech.quickdeal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "376168246948-l521nerlfm363rmkh3f97k0psh71do4u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.verbosetech.quickdeal",
+            "certificate_hash": "3a4eb89026d7695d5cb6614795f84f1b7d4969fa"
+          }
+        },
+        {
+          "client_id": "376168246948-aa9bd9u7tsh89tq5kbfnldhdfjd0f2tf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQ4jqgxrPjKszNnQt8qE54RcQftFIa2F0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "376168246948-aa9bd9u7tsh89tq5kbfnldhdfjd0f2tf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -207,9 +207,7 @@ public class LoginAsBuyerActivity extends AppCompatActivity implements GoogleApi
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
 
-                        // If sign in fails, display a message to the user. If sign in succeeds
-                        // the auth state listener will be notified and logic to handle the
-                        // signed in user can be handled in the listener.
+                        
                         if (!task.isSuccessful()) {
 
                             Toast.makeText(LoginAsBuyerActivity.this, "Authentication failed.",
@@ -280,4 +278,6 @@ public class LoginAsBuyerActivity extends AppCompatActivity implements GoogleApi
         startActivity(regbuyer);
     }
 }
+
+
 

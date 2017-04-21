@@ -39,7 +39,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 public class LoginAsBuyerActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener,
         View.OnClickListener{
 
-    public User user;
+
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     Firebase mRef=new Firebase("https://quickdeal-fdba8.firebaseio.com/");
@@ -238,9 +238,6 @@ public class LoginAsBuyerActivity extends AppCompatActivity implements GoogleApi
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
-                        // If sign in fails, display a message to the user. If sign in succeeds
-                        // the auth state listener will be notified and logic to handle the
-                        // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
 
                             Toast.makeText(LoginAsBuyerActivity.this, "Authentication failed.",
@@ -248,8 +245,10 @@ public class LoginAsBuyerActivity extends AppCompatActivity implements GoogleApi
                         } else {
                             Toast.makeText(LoginAsBuyerActivity.this, "Authentication Success. Please Wait",
                                     Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(LoginAsBuyerActivity.this, MainActivity.class));
-                            finish();
+                            String image=task.getResult().getUser().getPhotoUrl().toString();
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            intent.putExtra("profile_picture",image);
+                            startActivity(intent);
                         }
 
                     }
@@ -258,8 +257,7 @@ public class LoginAsBuyerActivity extends AppCompatActivity implements GoogleApi
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-        // An unresolvable error has occurred and Google APIs (including Sign-In) will not
-        // be available.
+
 
         Toast.makeText(this, "Google Play Services error.", Toast.LENGTH_SHORT).show();
     }

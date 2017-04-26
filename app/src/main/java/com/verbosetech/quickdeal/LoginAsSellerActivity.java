@@ -201,12 +201,10 @@ public class LoginAsSellerActivity extends AppCompatActivity implements GoogleAp
                                     Toast.LENGTH_SHORT).show();
                         }else{
 
-                            String image = task.getResult().getUser().getPhotoUrl().toString();
-                            String message = "Hello! You are logged in as Seller!";
+                            String image = task.getResult().getUser().getPhotoUrl().toString();                         
 
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             intent.putExtra("profile_picture",image);
-                            intent.putExtra("message_text",message);
                             startActivity(intent);
                             finish();
                         }

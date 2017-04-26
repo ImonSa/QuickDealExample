@@ -1,5 +1,6 @@
 package com.verbosetech.quickdeal;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -46,6 +47,7 @@ public class LoginAsBuyerActivity extends AppCompatActivity implements GoogleApi
     LoginButton loginButton;
     private static final int RC_SIGN_IN = 9001;
 
+    private ProgressDialog mProgressDialog;
 
     private GoogleApiClient mGoogleApiClient;
 
@@ -134,7 +136,6 @@ public class LoginAsBuyerActivity extends AppCompatActivity implements GoogleApi
 
             }
         });
-        //
 
 
     }
@@ -196,10 +197,7 @@ public class LoginAsBuyerActivity extends AppCompatActivity implements GoogleApi
 
 
     private void signInWithFacebook(AccessToken token) {
-
-
-
-
+        showProgressDialog();
         AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -207,28 +205,26 @@ public class LoginAsBuyerActivity extends AppCompatActivity implements GoogleApi
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
 
-                        
+
                         if (!task.isSuccessful()) {
 
                             Toast.makeText(LoginAsBuyerActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         }else{
                             String image=task.getResult().getUser().getPhotoUrl().toString();
-
-
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             intent.putExtra("profile_picture",image);
                             startActivity(intent);
                             finish();
                         }
-
-
+                        hideProgressDialog();
                     }
                 });
     }
 
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
+        showProgressDialog();
 
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
@@ -247,7 +243,9 @@ public class LoginAsBuyerActivity extends AppCompatActivity implements GoogleApi
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             intent.putExtra("profile_picture",image);
                             startActivity(intent);
+                            finish();
                         }
+                        hideProgressDialog();
 
                     }
                 });
@@ -266,6 +264,22 @@ public class LoginAsBuyerActivity extends AppCompatActivity implements GoogleApi
         loginButton.performClick();
     }
 
+    public void showProgressDialog() {
+        if (mProgressDialog == null) {
+            mProgressDialog = new ProgressDialog(this);
+            mProgressDialog.setMessage(getString(R.string.loading));
+            mProgressDialog.setIndeterminate(true);
+        }
+
+        mProgressDialog.show();
+    }
+
+    public void hideProgressDialog() {
+        if (mProgressDialog != null && mProgressDialog.isShowing()) {
+            mProgressDialog.dismiss();
+        }
+    }
+
 
     public void password(View v)
     {
@@ -278,6 +292,4 @@ public class LoginAsBuyerActivity extends AppCompatActivity implements GoogleApi
         startActivity(regbuyer);
     }
 }
-
-
 

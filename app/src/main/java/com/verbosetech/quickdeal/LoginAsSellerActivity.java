@@ -1,5 +1,6 @@
 package com.verbosetech.quickdeal;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -40,11 +41,9 @@ public class LoginAsSellerActivity extends AppCompatActivity implements GoogleAp
     Firebase mRef=new Firebase("https://quickdeal-fdba8.firebaseio.com/");
     LoginButton loginButton;
     private static final int RC_SIGN_IN = 9001;
-
+    private ProgressDialog mProgressDialog;
     private GoogleApiClient mGoogleApiClient;
-
     private Button mSignInButton;
-
     private CallbackManager callbackManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -187,11 +186,7 @@ public class LoginAsSellerActivity extends AppCompatActivity implements GoogleAp
 
 
     private void signInWithFacebook(AccessToken token) {
-
-
-
-
-
+        showProgressDialog();
         AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -206,22 +201,23 @@ public class LoginAsSellerActivity extends AppCompatActivity implements GoogleAp
                                     Toast.LENGTH_SHORT).show();
                         }else{
 
-                            String image=task.getResult().getUser().getPhotoUrl().toString();
+                            String image = task.getResult().getUser().getPhotoUrl().toString();
+                            String message = "Hello! You are logged in as Seller!";
 
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             intent.putExtra("profile_picture",image);
+                            intent.putExtra("message_text",message);
                             startActivity(intent);
                             finish();
                         }
-
-
+                        hideProgressDialog();
                     }
                 });
     }
 
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
-
+        showProgressDialog();
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -244,7 +240,7 @@ public class LoginAsSellerActivity extends AppCompatActivity implements GoogleAp
                             startActivity(intent);
                             finish();
                         }
-
+                        hideProgressDialog();
                     }
                 });
     }
@@ -273,5 +269,22 @@ public class LoginAsSellerActivity extends AppCompatActivity implements GoogleAp
         startActivity(regseller);
 
     }
+
+    public void showProgressDialog() {
+        if (mProgressDialog == null) {
+            mProgressDialog = new ProgressDialog(this);
+            mProgressDialog.setMessage(getString(R.string.loading));
+            mProgressDialog.setIndeterminate(true);
+        }
+
+        mProgressDialog.show();
+    }
+
+    public void hideProgressDialog() {
+        if (mProgressDialog != null && mProgressDialog.isShowing()) {
+            mProgressDialog.dismiss();
+        }
+    }
+
 
 }
